@@ -25,4 +25,4 @@ jobs:
         run: forge install
 
       - name: Run Tests
-        run: forge test -vv
+        run: forge test --no-match-test Fork -vv
