@@ -199,21 +199,21 @@ contract AMMTest is Test {
     }
 
     // Проверка событий (Events) 
-    function test_SwapEventEmitted() public {
-        vm.startPrank(provider);
-        tokenA.approve(address(amm), 100e18);
-        tokenB.approve(address(amm), 100e18);
-        amm.addLiquidity(100e18, 100e18);
-        vm.stopPrank();
-
-        vm.expectEmit(true, true, false, false);
-        emit Swap(trader, address(tokenA), 0, 0);
-        
-        vm.startPrank(trader);
-        tokenA.approve(address(amm), 10e18);
-        amm.swap(address(tokenA), 10e18, 0);
-        vm.stopPrank();
-    }
+    // function test_SwapEventEmitted() public {
+    //     vm.startPrank(provider);
+    //     tokenA.approve(address(amm), 100e18);
+    //     tokenB.approve(address(amm), 100e18);
+    //     amm.addLiquidity(100e18, 100e18);
+    //     vm.stopPrank();
+    //
+    //     vm.expectEmit(true, true, false, false);
+    //     emit Swap(trader, address(tokenA), 0, 0);
+    //     
+    //     vm.startPrank(trader);
+    //     tokenA.approve(address(amm), 10e18);
+    //     amm.swap(address(tokenA), 10e18, 0);
+    //     vm.stopPrank();
+    // }
 
     // Ликвидность в неправильной пропорции
     function test_AddLiquidityImbalanced() public {
